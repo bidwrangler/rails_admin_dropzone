@@ -29,10 +29,10 @@ module RailsAdmin
 
             if request.post?
               @object = @abstract_model.model.find(params[:id])
-              @params = params[@abstract_model.param_key]
+              @params = params[:model]
 
               if @params.present?
-                @params[:second_attr].each do |image|
+                @params[:images].each do |image|
                   if @object.create_associated_image(image)
                     render json: { message: 'success', fileID: '1' }, status: 200
                   else

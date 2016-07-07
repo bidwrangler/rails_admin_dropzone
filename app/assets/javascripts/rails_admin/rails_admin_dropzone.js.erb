@@ -7,8 +7,8 @@ $(document).on('rails_admin.dom_ready', function() {
   if ($(".dropzone").length){
     var dropzone = new Dropzone (".dropzone", {
       maxFilesize: 256, // Set the maximum file size to 256 MB
-      paramName: "album[second_attr][]", // Rails expects the file upload to be something like model[field_name]
-      addRemoveLinks: false, // Don't show remove links on dropzone itself.
+      paramName: "model[images][]", // Passed to rails as params: {model: {images: []}} and handled in the action.
+      addRemoveLinks: true,
 
       // Translations
       dictDefaultMessage: "<%= I18n.t('admin.actions.dropzone.dictDefaultMessage') %>",
